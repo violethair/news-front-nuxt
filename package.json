@@ -1,0 +1,28 @@
+{
+  "name": "iholding",
+  "version": "1.0.0",
+  "description": "iholding project",
+  "author": "violethair <violethair2308@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "eslint-config-vue": "^2.0.2",
+    "nuxt": "^2.0.0",
+    "vue-moment": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.19.1",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-vue": "^4.0.0"
+  }
+}
