@@ -78,13 +78,32 @@
 export default {
 	props: ['categories'],
     mounted : function () {
-    	$("#document").ready(function () {
+
+		var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+	    if (isMobile) {
+	        var uri = location.pathname + location.search;
+	        location.href = 'https://m.iholding.io' + uri;
+	    }
+
+    	$(document).ready(function () {
     		ddsmoothmenu.init({
 			    mainmenuid: "smoothmenu1",
 			    orientation: 'h',
 			    classname: 'ddsmoothmenu',
 			    contentsource: "markup"
 			});
+
+			var weekday = new Array(7);
+			weekday[0] =  "Sunday";
+			weekday[1] = "Monday";
+			weekday[2] = "Tuesday";
+			weekday[3] = "Wednesday";
+			weekday[4] = "Thursday";
+			weekday[5] = "Friday";
+			weekday[6] = "Saturday";
+			var now = new Date();
+			var format = weekday[now.getDay()] + " " + now.getDate() + ", " + now.getFullYear();
+			$(".wrap-header-info .time").html(format);
     	})
     }
 }

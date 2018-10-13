@@ -25,8 +25,8 @@
 					                    </div>
 					                    <a :href="'/post/' + lastest[0].link" :title="lastest[0].name" class="font-bold titlesite">{{ lastest[0].name }}</a>
 					                </div>
-					                <a :href="'/post/' + lastest[0].link">
-					                    <img :src="API_URL + '/postThumb/' + lastest[0].images">
+					                <a :href="'/post/' + lastest[0].link" :style="'width: 100%;height: 371px;background-size:cover;background-position:center;background-image:url('+IMAGE_URL + lastest[0].images+')'" class="image" :title="lastest[0].name" :alt="lastest[0].name">
+					                    <!-- <img :src="IMAGE_URL + lastest[0].images"> -->
 					                </a>
 					            </div>
 					        </div>
@@ -40,7 +40,7 @@
 					                    <a :href="'/post/' + data.link" :title="data.name" class="font-bold">{{ data.name }}</a>
 					                </div>
 					                <a :href="'/post/' + data.link" :title="data.name">
-					                    <img :src="API_URL + '/postThumb/' + data.images" :title="data.name">
+					                    <img :src="IMAGE_URL + data.images" :title="data.name">
 					                </a>
 					            </div>
 					        </div>
@@ -59,7 +59,7 @@
 				            <li v-for="data in pressReleases">
 				                <div class="wrap-content-releases">
 				                    <a :href="'/post/' + data.link" :title="data.name">
-			                    		<div :style="'float:left;margin-right:5px;width: 100px;height: 82px;background-size:cover;background-possition:center;background-image:url('+API_URL + '/postThumb/' + data.images+')'" class="image" :title="data.name" :alt="data.name">
+			                    		<div :style="'float:left;margin-right:5px;width: 100px;height: 82px;background-size:cover;background-position:center;background-image:url('+IMAGE_URL + data.images+')'" class="image" :title="data.name" :alt="data.name">
 			                    		</div>
 				                    </a>
 				                    <p class="text-sponsored">Sponsored</p> <a :href="'/post/' + data.link" :title="data.name">{{ data.name }}</a>
@@ -82,7 +82,7 @@
 						                <div class="wrap-content-data-one">
 						                    <div class="w-img-two img-outer">
 						                        <a :href="'/post/' + data.link" :title="data.name">
-						                        	<div :style="'float:left;margin-right:5px;width: 250px;height: 166px;background-size:cover;background-possition:center;background-image:url('+API_URL + '/postThumb/' + data.images+')'"></div>
+						                        	<div :style="'float:left;margin-right:5px;width: 250px;height: 166px;background-size:cover;background-position:center;background-image:url('+IMAGE_URL + data.images+')'"></div>
 						                        </a>
 						                    </div>
 						                    <div class="author-time">
@@ -123,7 +123,7 @@
 					            <div v-else class="wrap-content-data-two">
 					                <div class="w-img-two img-outer" style="height: 200px;overflow: hidden;">
 					                    <a :href="'/post/' + data.link" :title="data.name">
-					                        <img class="image" :src="API_URL + '/postThumb/' + data.images" :title="data.name">
+					                        <img class="image" :src="IMAGE_URL + data.images" :title="data.name">
 					                    </a>
 					                </div>
 					                <div class="info-data">
@@ -188,6 +188,7 @@ export default {
 		let settingRes = await axios.get('/getSetting')
 	    return {
     		API_URL : config.API_URL,
+    		IMAGE_URL : config.IMAGE_URL,
         	adsPossition: [2,8],
         	page: 0,
 	    	lastest : res.data.lastest,
